@@ -1,16 +1,12 @@
-# Template Portfolio
-This will be your portfolio repository. Use this as a [template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository) and customize it to your own tastes. We gave you a starting point with a space to describe yourself and a link to where your assignment 1 file can be.
-
 # About Me
-*My name is Amber Horvath, I'm a postdoctoral associate researching code comprehension interventions, it's nice to meet you! [Here is a link to my real website.](https://amberhorvath.com)
-Now you should write something about yourself here!*
+*My name is Kayle Orantes, I'm a senior studying computer science and engineering, it's nice to meet you!*
 
 Some fun facts about me:
-1. I love hockey.
-2. I do pottery.
-3. I have an extra bone in my right foot.
+1. I love baking & biking.
+2. I have a dog named Blizzard.
+3. I can flip my tongue upside down.
 
-![picture of snow leopard mama and baby](https://pbs.twimg.com/media/GzYlia3XMAAWfm4?format=jpg&name=4096x4096)
+![picture of me](https://media.licdn.com/dms/image/v2/D4E03AQGiaGW9vuBn1g/profile-displayphoto-scale_200_200/B4EZgf4JoUGUAc-/0/1752881474296?e=2147483647&v=beta&t=ndgV6xRXTm2RNe5W6bAU4fmuI2LDMD-4tvkjwJFyXOs)
 
 
 # Table of Contents
