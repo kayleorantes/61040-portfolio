@@ -15,5 +15,8 @@ Some fun facts about me:
 
 [This is an external link to my favorite website, GOOGLE](https://www.google.com/)
 
+![This is an external link to my favorite website, GOOGLE](https://www.google.com/)
+
+
 # Table of Contents
 [Link to Assignment 1](assignments/assignment1.md)
