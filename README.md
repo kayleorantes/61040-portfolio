@@ -13,9 +13,8 @@ Some fun facts about me:
 
 
 
-[This is an external link to my favorite website, GOOGLE](https://www.google.com/)
+[This is a direct link to my Assignment 1: Problem Framing work](https://docs.google.com/document/d/e/2PACX-1vRrMl1X1QgC6utQUvgqJ4vJp7EdZa7yeBdbBdAb3eGMwb9dXUAQn6aXSvPm4S_xtoPODOlZxEROcETr/pub)
 
-![This is an external link to my favorite website, GOOGLE](https://www.google.com/)
 
 
 # Table of Contents
