@@ -1,7 +1,6 @@
 # Assignment 2
 [Assignment 2 (AKA Problem Set 1: Reading and Writing Concepts)](https://docs.google.com/document/d/e/2PACX-1vQKlq_e2QjrgSwl__TCxR8pp_3d1aUuvxnXqoYv2DsY7bPit33QEyH0NaeakanPV-3ILtYo2j8raChS/pub)
 
-
 Exercise 1: Reading a concept
 
 1. **Invariants**. What are two invariants of the state? (_Hint_: one is about aggregation/counts of items, and one relates requests and purchases). Say which one is more important and why; identify the action whose design is most affected by it, and say how it preserves it.
@@ -12,93 +11,89 @@ Another invariant is that each gift can only be purchased once so the number of 
 
 I think the second is more important so that multiple people don’t end up purchasing the same gift. The purchase count is the action that the design is most affected by and keeping track of requests and purchases will ensure the invariant stays true.
 
-1. **Fixing an action**. Can you identify an action that potentially breaks this important invariant, and say how this might happen? How might this problem be fixed?
+2. **Fixing an action**. Can you identify an action that potentially breaks this important invariant, and say how this might happen? How might this problem be fixed?
 
 Adding an item could break the first invariant if the item isn’t officially added when a user wants to make that purchase.
 
-1. **Inferring behavior**. The operational principle describes the typical scenario in which the registry is opened and eventually closed. But a concept specification often allows other scenarios. By reading the specs of the concept actions, say whether a registry can be opened and closed repeatedly. What is a reason to allow this?
+3. **Inferring behavior**. The operational principle describes the typical scenario in which the registry is opened and eventually closed. But a concept specification often allows other scenarios. By reading the specs of the concept actions, say whether a registry can be opened and closed repeatedly. What is a reason to allow this?
 
-Yes, because an event might be canceled and then reopened for any reason for the user.
+Yes, because an event might be canceled and then reopened for any reason for the user. 
 
-1. **Registry deletion**. There is no action to delete a registry. Would this matter in practice?
+4. **Registry deletion**. There is no action to delete a registry. Would this matter in practice?
 
 As a storage issue, it would be a bothersome item if a user couldn’t delete the registry, but in practice, no system issue would occur.
 
-1. **Queries**. What are two common queries likely to be executed against the concept state? (_Hint_: one is executed by a registry owner, and one by a giver of a gift.)
+5. **Queries**. What are two common queries likely to be executed against the concept state? (_Hint_: one is executed by a registry owner, and one by a giver of a gift.)
 
 Registry owner- who bought what items?
 
 Giver- what can be bought?
 
-1. **Hiding purchases**. A common feature of gift registries is to allow the recipient to choose not to see purchases so that an element of surprise is retained. How would you augment the concept specification to support this?
+6. **Hiding purchases**. A common feature of gift registries is to allow the recipient to choose not to see purchases so that an element of surprise is retained. How would you augment the concept specification to support this?
 
 You could add a flag to make purchases and hide/show the purchases based on the value of the boolean.
 
-1. **Generic types**. The User and Item types are specified as generic parameters. The Item type might be populated by SKU codes, for example. Explain why this is preferable to representing items with their names, descriptions, prices, etc.
+7. **Generic types**. The User and Item types are specified as generic parameters. The Item type might be populated by SKU codes, for example. Explain why this is preferable to representing items with their names, descriptions, prices, etc.
 
 Prices can fluctuate, names can change, but the SKU code will stay reliable and avoid ambiguity in the representation details (like ‘flour, 24oz’ vs the specific SKU for that specific item).
 
 Exercise 2: Extending a familiar concept
 
-**concept** PasswordAuthentication  
-**purpose** limit access to known users  
-**principle** after a user registers with a username and a password, they can authenticate with that same username and password and be treated each time as the same user **state  
-**a set of Users with
+**concept** PasswordAuthentication\
+**purpose** limit access to known users\
+**principle** after a user registers with a username and a password, they can authenticate with that same username and password and be treated each time as the same user  **state**a set of Users with 
 
 Username: String,
 
-passwordHash: String  
-**actions  
-**register (username: String, password: String): (user: User)  
-Requires that the username is unique from the past and is not taken
+passwordHash: String\
+**actions**register (username: String, password: String): (user: User)\
+&#x20; Requires that the username is unique from the past and is not taken
 
 Effects: creates a new user with the username and with passwordHash
 
-authenticate (username: String, password: String): (user: User)  
-Requires that the user with username exists and that the password matches the hash for it
+authenticate (username: String, password: String): (user: User)\
+      Requires that the user with username exists and that the password matches the hash for it
 
 Effects is that the user is returned if correct, else nothing
 
 1. Complete the definition of the concept state.
 
-**state  
-**a set of Users with
+**state**a set of Users with 
 
 Username: String,
 
 passwordHash: String
 
-1. Write a requires/effects specification for each of the two actions. (_Hints_: The register action creates and returns a new user. The authenticate action is primarily a guard, and doesn’t mutate the state.)
+2. Write a requires/effects specification for each of the two actions. (_Hints_: The register action creates and returns a new user. The authenticate action is primarily a guard, and doesn’t mutate the state.)
 
-**actions  
-**register (username: String, password: String): (user: User)  
-Requires that the username is unique from the past and is not taken
+**actions**register (username: String, password: String): (user: User)\
+      Requires that the username is unique from the past and is not taken
 
 Effects: creates a new user with the username and with passwordHash
 
-authenticate (username: String, password: String): (user: User)  
-Requires that the user with username exists & password matches the hash for it
+authenticate (username: String, password: String): (user: User)\
+      Requires that the user with username exists & password matches the hash for it
 
 Effects is that the user is returned if correct, else nothing
 
-1. What essential invariant must hold on the state? How is it preserved?
+3. What essential invariant must hold on the state? How is it preserved?
 
 Invariant: each username is unique, and this is preserved since register will not allow a user to create an account with a duplicated username
 
-1. One widely used extension of this concept requires that registration be confirmed by email. Extend the concept to include this functionality. (_Hints_: you should add (1) an extra result variable to the register action that returns a secret token that (via a sync) will be emailed to the user; (2) a new confirm action that takes a username and a secret token and completes the registration; (3) whatever additional state is needed to support this behavior.)
+4. One widely used extension of this concept requires that registration be confirmed by email. Extend the concept to include this functionality. (_Hints_: you should add (1) an extra result variable to the register action that returns a secret token that (via a sync) will be emailed to the user; (2) a new confirm action that takes a username and a secret token and completes the registration; (3) whatever additional state is needed to support this behavior.)
 
 We could create another state that is ‘potential users,’ with username, password, email, and a boolean for verified, along with the forementioned token.
 
-**Extra state:**  
+**Extra state:**\
 confirmed: Boolean
 
 **Extra action:**
 
 confirmed(username: String, password: String, email: String, verified: Boolean, storedToken: token)
 
-Requires matching user exists with the stored token
+  Requires matching user exists with the stored token
 
-Effects will set confirmed as true for that user after successful confirmation
+   Effects will set confirmed as true for that user after successful confirmation
 
 Exercise 3: Comparing concepts
 
@@ -106,7 +101,7 @@ Exercise 3: Comparing concepts
 
 **purpose** to provide a safe authentication alternative to passwords
 
-**principle** a user generates one or more tokens linked to their account and each token will act like a password but access can be revoked or limited
+**principle** a user generates one or more tokens linked to their account and each token will act like a password but access can be revoked or limited 
 
 **state**
 
@@ -116,31 +111,31 @@ a set of Tokens with
 
 owner User
 
-string value
+     string value
 
-scopes Set&lt;Scope&gt;
+     scopes Set\<Scope>
 
-active Flag
+     active Flag
 
 **actions**
 
-generate(user: User, scopes: Set&lt;Scope&gt;): (token: Token)
+generate(user: User, scopes: Set\<Scope>): (token: Token)
 
 Requires a valid user and scope
 
-Effects is that a token is created and linked to user
+   Effects is that a token is created and linked to user
 
 revoke(token: Token)
 
-Requires valid token
+  Requires valid token
 
-Effects set active to false
+     Effects set active to false
 
 authenticate(username: String, token: String): (user: User)
 
-Requires the token to match
+     Requires the token to match 
 
-Effects is that it will return the corresponding user
+     Effects is that it will return the corresponding user
 
 Exercise 4: Defining familiar Concepts
 
@@ -181,6 +176,10 @@ Effects returns the mapped longURL
 **Summary**
 
 This is a very simple state & concept since it just maps short URLs to long ones. No collisions since we check URL uniqueness.
+
+\
+\
+
 
 **concept** ConferenceRoomBooking
 
