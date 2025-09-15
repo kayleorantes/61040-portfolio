@@ -15,7 +15,7 @@ Some fun facts about me:
 
 [This is a direct link to my Assignment 1: Problem Framing work](https://docs.google.com/document/d/e/2PACX-1vRrMl1X1QgC6utQUvgqJ4vJp7EdZa7yeBdbBdAb3eGMwb9dXUAQn6aXSvPm4S_xtoPODOlZxEROcETr/pub)
 
-[This is a direct link to my Assignment 2 (AKA Problem Set 1: Reading and Writing Concepts)](https://docs.google.com/document/d/e/2PACX-1vQKlq_e2QjrgSwl__TCxR8pp_3d1aUuvxnXqoYv2DsY7bPit33QEyH0NaeakanPV-3ILtYo2j8raChS/pub)
+[This is a direct link to my Problem Set 1: Reading and Writing Concepts (this link is to the google docs version, below is a link to my attempt in markdown))](https://docs.google.com/document/d/e/2PACX-1vQKlq_e2QjrgSwl__TCxR8pp_3d1aUuvxnXqoYv2DsY7bPit33QEyH0NaeakanPV-3ILtYo2j8raChS/pub)
 
 
 
