@@ -1,5 +1,5 @@
 # Assignment 2
-[Assignment 2 (AKA Problem Set 1: Reading and Writing Concepts)](https://docs.google.com/document/d/e/2PACX-1vQKlq_e2QjrgSwl__TCxR8pp_3d1aUuvxnXqoYv2DsY7bPit33QEyH0NaeakanPV-3ILtYo2j8raChS/pub)
+[Link to PSET in google doc!](https://docs.google.com/document/d/e/2PACX-1vQKlq_e2QjrgSwl__TCxR8pp_3d1aUuvxnXqoYv2DsY7bPit33QEyH0NaeakanPV-3ILtYo2j8raChS/pub)
 
 Exercise 1: Reading a concept
 
@@ -36,6 +36,11 @@ You could add a flag to make purchases and hide/show the purchases based on the 
 1. **Generic types**. The User and Item types are specified as generic parameters. The Item type might be populated by SKU codes, for example. Explain why this is preferable to representing items with their names, descriptions, prices, etc.
 
 Prices can fluctuate, names can change, but the SKU code will stay reliable and avoid ambiguity in the representation details (like ‘flour, 24oz’ vs the specific SKU for that specific item).
+
+
+
+
+
 
 Exercise 2: Extending a familiar concept
 
@@ -95,6 +100,12 @@ Requires matching user exists with the stored token
 
 Effects will set confirmed as true for that user after successful confirmation
 
+
+
+
+
+
+
 Exercise 3: Comparing concepts
 
 **concept** PersonalAccessToken
@@ -137,6 +148,12 @@ Requires the token to match
 
 Effects is that it will return the corresponding user
 
+
+
+
+
+
+
 Exercise 4: Defining familiar Concepts
 
 **concept** URLShortener
@@ -176,6 +193,13 @@ Effects returns the mapped longURL
 **Summary**
 
 This is a very simple state & concept since it just maps short URLs to long ones. No collisions since we check URL uniqueness.
+
+
+
+
+
+
+
 
 **concept** ConferenceRoomBooking
 
@@ -220,6 +244,13 @@ Effects returns all active bookings for the room
 **Summary**
 
 We cannot have two bookings overlap in the same room, could extend so a user is only allowed to book one room at a time
+
+
+
+
+
+
+
 
 **concept** ElectronicBoardingPass
 
