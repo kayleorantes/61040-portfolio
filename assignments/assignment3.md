@@ -109,15 +109,15 @@ then UrlShortening.delete(shortUrl) <br>
 **purpose** keep track of every time a short url is accessed <br>
 **principle** each access is recorded in the log so we can later count them <br>
 **state** <br>
-    a set of Logs with <br>
-        shortUrl String <br>
-        entries List[Event]   (could just be timestamps or empty markers) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    a set of Logs with <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        shortUrl String <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        entries List[Event]   (could just be timestamps or empty markers) <br>
 **actions** <br>
-    record(shortUrl: String) <br>
-        **effects** adds one entry to the log for that shortUrl <br>
-    count(shortUrl: String): (n: Number) <br>
-        **requires** log exists <br>
-        **effects** returns how many entries are in the log <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    record(shortUrl: String) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        **effects** adds one entry to the log for that shortUrl <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    count(shortUrl: String): (n: Number) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        **requires** log exists <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        **effects** returns how many entries are in the log <br>
 <br>
 <br>
 
@@ -125,14 +125,14 @@ then UrlShortening.delete(shortUrl) <br>
 **purpose** control who is allowed to see analytics for a short url <br>
 **principle** analytics are only viewable by the user who made the short url <br>
 **state** <br>
-    a set of Permissions with <br>
-        shortUrl String <br>
-        viewer User <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    a set of Permissions with <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        shortUrl String <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        viewer User <br>
 **actions** <br>
-    grant(shortUrl: String, user: User) <br>
-        **effects** gives user the right to view analytics for shortUrl <br>
-    canView(shortUrl: String, user: User): (ok: Boolean) <br>
-        **effects** returns true if user has permission, false otherwise <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    grant(shortUrl: String, user: User) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        **effects** gives user the right to view analytics for shortUrl <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    canView(shortUrl: String, user: User): (ok: Boolean) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        **effects** returns true if user has permission, false otherwise <br>
 <br>
 <br>
 <br>
@@ -141,24 +141,24 @@ then UrlShortening.delete(shortUrl) <br>
 
 
 **sync** createLog <br>
- **when** <br>
-   Request.shortenUrl(user: User, targetUrl, base) <br>
-   UrlShortening.register(): (shortUrl) <br>
- **then** <br>
-   AnalyticsLog.record(shortUrl) (start empty log) <br>
-   UserVisibility.grant(shortUrl, user) <br>
+&nbsp; **when** <br>
+&nbsp;&nbsp;&nbsp;   Request.shortenUrl(user: User, targetUrl, base) <br>
+&nbsp;&nbsp;&nbsp;   UrlShortening.register(): (shortUrl) <br>
+&nbsp; **then** <br>
+&nbsp;&nbsp;&nbsp;   AnalyticsLog.record(shortUrl) (start empty log) <br>
+&nbsp;&nbsp;&nbsp;   UserVisibility.grant(shortUrl, user) <br>
 <br>
 <br>
 <br>
 **sync** addAccess <br>
- **when** UrlShortening.lookup(shortUrl) <br>
- **then** AnalyticsLog.record(shortUrl) <br>
+&nbsp; **when** UrlShortening.lookup(shortUrl) <br>
+&nbsp; **then** AnalyticsLog.record(shortUrl) <br>
 **sync** viewLog <br>
- **when** <br>
-   Request.viewAnalytics(user: User, shortUrl) <br>
-   UserVisibility.canView(shortUrl, user): (ok = true) <br>
- **then** <br>
-&nbsp;   AnalyticsLog.count(shortUrl) <br>
+&nbsp; **when** <br>
+ &nbsp;&nbsp;  Request.viewAnalytics(user: User, shortUrl) <br>
+ &nbsp;&nbsp;  UserVisibility.canView(shortUrl, user): (ok = true) <br>
+&nbsp; **then** <br>
+&nbsp;&nbsp;&nbsp;   AnalyticsLog.count(shortUrl) <br>
 
 <br>
 <br>
