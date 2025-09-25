@@ -1,10 +1,9 @@
 # Concepts for URL Shortening
-<br>
 
 ### 1. Contexts
 
 
-<u>  *The NonceGeneration concept ensures that the short strings it generates will be unique and not result in conflicts. What are the contexts for, and what will a context end up being in the URL shortening app?* </u>  
+*The NonceGeneration concept ensures that the short strings it generates will be unique and not result in conflicts. What are the contexts for, and what will a context end up being in the URL shortening app?*
 <br>
 <br>
 Contexts in NonceGeneration are namespaces that ensure nonces are unique within that context. In the URL shortener, the context will usually be the short URL base domain. That way, nonces generated for one domain won’t conflict with those for another.
@@ -40,10 +39,10 @@ I would modify the NonceGeneration concept to realize this idea by changing the 
 <br>
 
 # Synchronizations for URL Shortening
-<br>
 
 ### 1. Partial matching
-<br>
+
+
 *In the first sync (called generate), the Request.shortenUrl action in the when clause includes the shortUrlBase argument but not the targetUrl argument. In the second sync (called register) both appear. Why is this?*
 <br>
 <br>
@@ -53,7 +52,8 @@ The first sync only needs shortUrlBase because it’s about nonce generation and
 <br>
 
 ### 2. Omitting names
-<br>
+
+
 *The convention that allows names to be omitted when argument or result names are the same as their variable names is convenient and allows for a more succinct specification. Why isn’t this convention used in every case?*
 <br>
 <br>
@@ -63,7 +63,8 @@ We omit names only when variable and parameter names are identical and if they d
 <br>
 
 ### 3. Inclusion of request
-<br>
+
+
 *Why is the request action included in the first two syncs but not the third one?*
 <br>
 <br>
@@ -73,7 +74,8 @@ The request is included in the first two syncs because they’re triggered by us
 <br>
 
 ### 4. Fixed domain
-<br>
+
+
 *Suppose the application did not support alternative domain names, and always used a fixed one such as “bit.ly.” How would you change the synchronizations to implement this?*
 <br>
 <br>
@@ -83,15 +85,16 @@ If only a single fixed domain is supported such as “bit.ly”, then I would dr
 <br>
 
 ### 5. Adding a sync
-<br>
+
+
 *These synchronizations are not complete; in particular, they don’t do anything when a resource expires. Write a sync for this case, using appropriate actions from the ExpiringResource and URLShortening concepts.*
 <br>
 <br>
 
-When a resource expires we are automatically deleting mapping by:
-sync expire
-when ExpiringResource.expireResource(): (resource: shortUrl)
-then UrlShortening.delete(shortUrl)
+When a resource expires we are automatically deleting mapping by: <br>
+sync expire <br>
+when ExpiringResource.expireResource(): (resource: shortUrl) <br>
+then UrlShortening.delete(shortUrl) <br>
 <br>
 <br>
 <br>
@@ -99,10 +102,9 @@ then UrlShortening.delete(shortUrl)
 
 
 # Extending the Design
-<br>
 
 ### 1. Additional Concepts 
-<br>
+
 
 **concept** AnalyticsLog <br>
 **purpose** keep track of every time a short url is accessed <br>
@@ -117,7 +119,6 @@ then UrlShortening.delete(shortUrl)
     count(shortUrl: String): (n: Number) <br>
         **requires** log exists <br>
         **effects** returns how many entries are in the log <br>
-<br>
 <br>
 <br>
 
@@ -136,10 +137,9 @@ then UrlShortening.delete(shortUrl)
 <br>
 <br>
 <br>
-<br>
 
 ### 2. Three Essential Synchronizations
-<br>
+
 
 **sync** createLog <br>
  **when** <br>
@@ -164,11 +164,9 @@ then UrlShortening.delete(shortUrl)
 <br>
 <br>
 <br>
-<br>
-
 
 ### 3. Modularity of our Solution
-<br>
+
 **1. Allowing users to choose their own short URLs**
 <br>
 We can reuse UrlShortening.register but with a request that carries the desired suffix. The sync would pass it directly. No new concept needed.
