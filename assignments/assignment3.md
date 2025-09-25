@@ -1,4 +1,4 @@
-# ***Concepts for URL Shortening***
+# Concepts for URL Shortening
 <br>
 **1. Contexts** 
 <br>
@@ -34,7 +34,7 @@ I would modify the NonceGeneration concept to realize this idea by changing the 
 <br>
 <br>
 <br>
-#***Synchronizations for URL Shortening***
+# Synchronizations for URL Shortening
 <br>
 **1. Partial matching** 
 <br>
@@ -89,7 +89,7 @@ then UrlShortening.delete(shortUrl)
 <br>
 <br>
 
-#***Extending the Design***
+# Extending the Design
 <br>
 **1. Additional Concepts**
 **concept** AnalyticsLog
