@@ -1,7 +1,7 @@
 # Concepts for URL Shortening
 <br>
 
-**1. Contexts** 
+### 1. Contexts
 <br>
 *The NonceGeneration concept ensures that the short strings it generates will be unique and not result in conflicts. What are the contexts for, and what will a context end up being in the URL shortening app?*
 <br>
@@ -9,8 +9,9 @@
 Contexts in NonceGeneration are namespaces that ensure nonces are unique within that context. In the URL shortener, the context will usually be the short URL base domain. That way, nonces generated for one domain won’t conflict with those for another.
 <br>
 <br>
+<br>
 
-**2. Storing used strings** 
+### 2. Storing used strings
 <br>
 *Why must the NonceGeneration store sets of used strings? One simple way to implement the NonceGeneration is to maintain a counter for each context and increment it every time the generate action is called. In this case, how is the set of used strings in the specification related to the counter in the implementation? (In abstract data type lingo, this is asking you to describe an abstraction function.)*
 <br>
@@ -18,8 +19,9 @@ Contexts in NonceGeneration are namespaces that ensure nonces are unique within 
 NonceGeneration stores sets of used strings so it can guarantee uniqueness. If implemented with a counter, then the abstraction function maps the counter’s history to the “set of used strings” in the spec. In other words, the counter value n corresponds to {s₀, s₁, …, sₙ₋₁} (the nonces generated so far).
 <br>
 <br>
+<br>
 
-**3. Words as nonces** 
+### 3. Words as nonces
 <br>
 *One option for nonce generation is to use common dictionary words (in the style of yellkey.com, for example) resulting in more easily remembered shortenings. What is one advantage and one disadvantage of this scheme, both from the perspective of the user? How would you modify the NonceGeneration concept to realize this idea?*
 <br>
@@ -33,11 +35,11 @@ I would modify the NonceGeneration concept to realize this idea by changing the 
 <br>
 <br>
 <br>
-<br>
-<br>
+
 # Synchronizations for URL Shortening
 <br>
-**1. Partial matching** 
+
+### 1. Partial matching
 <br>
 *In the first sync (called generate), the Request.shortenUrl action in the when clause includes the shortUrlBase argument but not the targetUrl argument. In the second sync (called register) both appear. Why is this?*
 <br>
@@ -45,8 +47,9 @@ I would modify the NonceGeneration concept to realize this idea by changing the 
 The first sync only needs shortUrlBase because it’s about nonce generation and the targetUrl isn’t necessary yet since it only matters later when registering. The second sync needs both since registration ties the generated nonce to a specific target.
 <br>
 <br>
+<br>
 
-**2. Omitting names** 
+### 2. Omitting names
 <br>
 *The convention that allows names to be omitted when argument or result names are the same as their variable names is convenient and allows for a more succinct specification. Why isn’t this convention used in every case?*
 <br>
@@ -54,8 +57,9 @@ The first sync only needs shortUrlBase because it’s about nonce generation and
 We omit names only when variable and parameter names are identical and if they differ then we keep both to avoid ambiguity. This prevents confusion when multiple variables are in scope.
 <br>
 <br>
+<br>
 
-**3. Inclusion of request** 
+### 3. Inclusion of request
 <br>
 *Why is the request action included in the first two syncs but not the third one?*
 <br>
@@ -63,8 +67,9 @@ We omit names only when variable and parameter names are identical and if they d
 The request is included in the first two syncs because they’re triggered by user actions when they request to shorten. The third sync is setExpiry which is a system-driven event triggered by registration completion so there is no request involved.
 <br>
 <br>
+<br>
 
-**4. Fixed domain** 
+### 4. Fixed domain
 <br>
 *Suppose the application did not support alternative domain names, and always used a fixed one such as “bit.ly.” How would you change the synchronizations to implement this?*
 <br>
@@ -72,8 +77,9 @@ The request is included in the first two syncs because they’re triggered by us
 If only a single fixed domain is supported such as “bit.ly”, then I would drop the shortUrlBase argument and let the NonceGeneration context be "bit.ly" which would make syncs look like NonceGeneration.generate(context: "bit.ly").
 <br>
 <br>
+<br>
 
-**5. Adding a sync** 
+### 5. Adding a sync
 <br>
 *These synchronizations are not complete; in particular, they don’t do anything when a resource expires. Write a sync for this case, using appropriate actions from the ExpiringResource and URLShortening concepts.*
 <br>
@@ -87,92 +93,95 @@ then UrlShortening.delete(shortUrl)
 <br>
 <br>
 <br>
-<br>
-<br>
+
 
 # Extending the Design
 <br>
-**1. Additional Concepts**
-**concept** AnalyticsLog
-**purpose** keep track of every time a short url is accessed
-**principle** each access is recorded in the log so we can later count them
-**state**
-    a set of Logs with
-        shortUrl String
-        entries List[Event]   (could just be timestamps or empty markers)
-**actions**
-    record(shortUrl: String)
-        **effects** adds one entry to the log for that shortUrl
-    count(shortUrl: String): (n: Number)
-        **requires** log exists
-        **effects** returns how many entries are in the log
+
+### 1. Additional Concepts 
+<br>
+
+**concept** AnalyticsLog <br>
+**purpose** keep track of every time a short url is accessed <br>
+**principle** each access is recorded in the log so we can later count them <br>
+**state** <br>
+    a set of Logs with <br>
+        shortUrl String <br>
+        entries List[Event]   (could just be timestamps or empty markers) <br>
+**actions** <br>
+    record(shortUrl: String) <br>
+        **effects** adds one entry to the log for that shortUrl <br>
+    count(shortUrl: String): (n: Number) <br>
+        **requires** log exists <br>
+        **effects** returns how many entries are in the log <br>
+<br>
 <br>
 <br>
 
-**concept** UserVisibility
-**purpose** control who is allowed to see analytics for a short url
-**principle** analytics are only viewable by the user who made the short url
-**state**
-    a set of Permissions with
-        shortUrl String
-        viewer User
-**actions**
-    grant(shortUrl: String, user: User)
-        **effects** gives user the right to view analytics for shortUrl
-    canView(shortUrl: String, user: User): (ok: Boolean)
-        **effects** returns true if user has permission, false otherwise
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-**2. Three Essential Synchronizations**
-<br>
-**sync** createLog
- **when**
-   Request.shortenUrl(user: User, targetUrl, base)
-   UrlShortening.register(): (shortUrl)
- **then**
-   AnalyticsLog.record(shortUrl) (start empty log)
-   UserVisibility.grant(shortUrl, user)
-<br>
-<br>
-<br>
-**sync** addAccess
- **when** UrlShortening.lookup(shortUrl)
- **then** AnalyticsLog.record(shortUrl)
-**sync** viewLog
- **when**
-   Request.viewAnalytics(user: User, shortUrl)
-   UserVisibility.canView(shortUrl, user): (ok = true)
- **then**
-   AnalyticsLog.count(shortUrl)
-
-<br>
-<br>
+**concept** UserVisibility <br>
+**purpose** control who is allowed to see analytics for a short url <br>
+**principle** analytics are only viewable by the user who made the short url <br>
+**state** <br>
+    a set of Permissions with <br>
+        shortUrl String <br>
+        viewer User <br>
+**actions** <br>
+    grant(shortUrl: String, user: User) <br>
+        **effects** gives user the right to view analytics for shortUrl <br>
+    canView(shortUrl: String, user: User): (ok: Boolean) <br>
+        **effects** returns true if user has permission, false otherwise <br>
 <br>
 <br>
 <br>
 <br>
 
-**3. Modularity of our Solution**
+### 2. Three Essential Synchronizations
+<br>
+
+**sync** createLog <br>
+ **when** <br>
+   Request.shortenUrl(user: User, targetUrl, base) <br>
+   UrlShortening.register(): (shortUrl) <br>
+ **then** <br>
+   AnalyticsLog.record(shortUrl) (start empty log) <br>
+   UserVisibility.grant(shortUrl, user) <br>
+<br>
+<br>
+<br>
+**sync** addAccess <br>
+ **when** UrlShortening.lookup(shortUrl) <br>
+ **then** AnalyticsLog.record(shortUrl) <br>
+**sync** viewLog <br>
+ **when** <br>
+   Request.viewAnalytics(user: User, shortUrl) <br>
+   UserVisibility.canView(shortUrl, user): (ok = true) <br>
+ **then** <br>
+   AnalyticsLog.count(shortUrl) <br>
+
+<br>
+<br>
+<br>
+<br>
+
+
+### 3. Modularity of our Solution
 <br>
 **1. Allowing users to choose their own short URLs**
+<br>
 We can reuse UrlShortening.register but with a request that carries the desired suffix. The sync would pass it directly. No new concept needed.
 <br>
 <br>
-**2. Using the “word as nonce” strategy to generate more memorable short URLs**
+**2. Using the “word as nonce” strategy to generate more memorable short URLs** <br>
 This can hook in with the earlier WordNonceGeneration idea. Just add syncs so that shortenUrlMemorable uses the word generator instead of the default.
 <br>
 <br>
-**3. Including the target URL in analytics, so that lookups of different short URLs can be grouped together when they refer to the same target URL**
+**3. Including the target URL in analytics, so that lookups of different short URLs can be grouped together when they refer to the same target URL** <br>
 I do not think this feature should be included since it breaks the privacy rule since multiple users might shorten the same target. Grouping by target means one user could see traffic for a URL they didn’t create.
 <br>
 <br>
-**4. Generate short URLs that are not easily guessed**
+**4. Generate short URLs that are not easily guessed** <br>
 This could be done by making a stronger nonce generator (like SecureNonceGeneration) and wiring it in with a new request type but at the end of the day it is still modular since it only changes how nonces are made.
 <br>
 <br>
-**5. Supporting reporting of analytics to creators of short URLs who have not registered as user**
+**5. Supporting reporting of analytics to creators of short URLs who have not registered as user** <br>
 This doesn’t fit with the ownership idea. If no user registered the URL, then there’s no one who should be allowed to see private analytics and doing this would require some kind of temporary token system, which adds complexity and weakens privacy.
