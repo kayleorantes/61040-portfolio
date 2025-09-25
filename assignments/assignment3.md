@@ -6,7 +6,7 @@
 *The NonceGeneration concept ensures that the short strings it generates will be unique and not result in conflicts. What are the contexts for, and what will a context end up being in the URL shortening app?*
 <br>
 <br>
-Contexts in NonceGeneration are namespaces that ensure nonces are unique within that context. In the URL shortener, the context will usually be the short URL base domain. That way, nonces generated for one domain won’t conflict with those for another.
+In NonceGeneration, contexts are namespaces that ensure nonces are unique within that specific context. In the URL shortener, the context will usually be the short URL base domain so that nonces generated for one domain won’t conflict with those for another.
 <br>
 <br>
 <br>
@@ -17,7 +17,7 @@ Contexts in NonceGeneration are namespaces that ensure nonces are unique within 
 *Why must the NonceGeneration store sets of used strings? One simple way to implement the NonceGeneration is to maintain a counter for each context and increment it every time the generate action is called. In this case, how is the set of used strings in the specification related to the counter in the implementation? (In abstract data type lingo, this is asking you to describe an abstraction function.)*
 <br>
 <br>
-NonceGeneration stores sets of used strings so it can guarantee uniqueness. If implemented with a counter, then the abstraction function maps the counter’s history to the “set of used strings” in the spec. In other words, the counter value n corresponds to {s₀, s₁, …, sₙ₋₁} (the nonces generated so far).
+The NonceGeneration must store sets of used strings so it can guarantee uniqueness. If it was implemented with a counter, then the abstraction function maps the counter’s history to the “set of used strings” in the spec which just means that the counter value n corresponds to the nonces generated thus far.
 <br>
 <br>
 <br>
@@ -28,11 +28,11 @@ NonceGeneration stores sets of used strings so it can guarantee uniqueness. If i
 *One option for nonce generation is to use common dictionary words (in the style of yellkey.com, for example) resulting in more easily remembered shortenings. What is one advantage and one disadvantage of this scheme, both from the perspective of the user? How would you modify the NonceGeneration concept to realize this idea?*
 <br>
 <br>
-One advantage is that it is easier for users to remember and share verbally since it is easier for users to use ‘computer/table/smile’ as the nonces instead of ‘12Xd82Jd9h’.
+One advantage of this scheme is that it is easier for users to remember and share verbally since it is easier for users to use ‘computer/table/smile’ as the nonces instead of ‘12Xd82Jd9h’.
 <br>
 One disadvantage is that collisions happen more quickly since there is a finite dictionary, and nonces may be guessable which is a serious security risk. Yellkey itself specifically calls this out “yellkeys are NOT private. anyone can access your URL if they want to. please be careful what links you choose to share through yellkey.” Having been personally curious about this, I tried out 25 basic words and one led to an actual google form that someone created so assuming that computers are faster than I am, it would be easy to find a large collection of nonces just by guessing or systematically going through words.
 <br>
-I would modify the NonceGeneration concept to realize this idea by changing the concept so that instead of arbitrary strings, the generated nonces come from a dictionary word pool, removing each word once used so one link doesn’t overwrite another.
+I would modify the NonceGeneration concept to realize this idea by changing the concept so that instead of arbitrary strings, the generated nonces come from a dictionary word pool, and we will be removing each word once it is used so that one link doesn’t overwrite another.
 <br>
 <br>
 <br>
@@ -46,7 +46,7 @@ I would modify the NonceGeneration concept to realize this idea by changing the 
 *In the first sync (called generate), the Request.shortenUrl action in the when clause includes the shortUrlBase argument but not the targetUrl argument. In the second sync (called register) both appear. Why is this?*
 <br>
 <br>
-The first sync only needs shortUrlBase because it’s about nonce generation and the targetUrl isn’t necessary yet since it only matters later when registering. The second sync needs both since registration ties the generated nonce to a specific target.
+The first sync only needs shortUrlBase because it’s about nonce generation and the targetUrl isn’t necessary yet since it only matters later when registering. The second sync needs both to appear since registration ties the generated nonce to a specific target.
 <br>
 <br>
 <br>
@@ -57,7 +57,7 @@ The first sync only needs shortUrlBase because it’s about nonce generation and
 *The convention that allows names to be omitted when argument or result names are the same as their variable names is convenient and allows for a more succinct specification. Why isn’t this convention used in every case?*
 <br>
 <br>
-We omit names only when variable and parameter names are identical and if they differ then we keep both to avoid ambiguity. This prevents confusion when multiple variables are in scope.
+We omit names only when variable and parameter names are identical and if they differ then we keep both to avoid ambiguity to help prevents confusion when multiple variables are in scope.
 <br>
 <br>
 <br>
