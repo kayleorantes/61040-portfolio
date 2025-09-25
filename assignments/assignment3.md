@@ -4,15 +4,17 @@
 ### 1. Contexts
 
 
-*The NonceGeneration concept ensures that the short strings it generates will be unique and not result in conflicts. What are the contexts for, and what will a context end up being in the URL shortening app?*
+<u>  *The NonceGeneration concept ensures that the short strings it generates will be unique and not result in conflicts. What are the contexts for, and what will a context end up being in the URL shortening app?* </u>  
 <br>
 <br>
 Contexts in NonceGeneration are namespaces that ensure nonces are unique within that context. In the URL shortener, the context will usually be the short URL base domain. That way, nonces generated for one domain won’t conflict with those for another.
 <br>
 <br>
 <br>
+
 ### 2. Storing used strings
-<br>
+
+
 *Why must the NonceGeneration store sets of used strings? One simple way to implement the NonceGeneration is to maintain a counter for each context and increment it every time the generate action is called. In this case, how is the set of used strings in the specification related to the counter in the implementation? (In abstract data type lingo, this is asking you to describe an abstraction function.)*
 <br>
 <br>
@@ -22,7 +24,8 @@ NonceGeneration stores sets of used strings so it can guarantee uniqueness. If i
 <br>
 
 ### 3. Words as nonces
-<br>
+
+
 *One option for nonce generation is to use common dictionary words (in the style of yellkey.com, for example) resulting in more easily remembered shortenings. What is one advantage and one disadvantage of this scheme, both from the perspective of the user? How would you modify the NonceGeneration concept to realize this idea?*
 <br>
 <br>
