@@ -100,7 +100,6 @@ then UrlShortening.delete(shortUrl) <br>
 <br>
 <br>
 
-
 # Extending the Design
 
 ### 1. Additional Concepts 
@@ -159,7 +158,7 @@ then UrlShortening.delete(shortUrl) <br>
    Request.viewAnalytics(user: User, shortUrl) <br>
    UserVisibility.canView(shortUrl, user): (ok = true) <br>
  **then** <br>
-   AnalyticsLog.count(shortUrl) <br>
+`   AnalyticsLog.count(shortUrl) <br>
 
 <br>
 <br>
