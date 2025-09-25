@@ -158,7 +158,7 @@ then UrlShortening.delete(shortUrl) <br>
    Request.viewAnalytics(user: User, shortUrl) <br>
    UserVisibility.canView(shortUrl, user): (ok = true) <br>
  **then** <br>
-&nbsp   AnalyticsLog.count(shortUrl) <br>
+&nbsp;   AnalyticsLog.count(shortUrl) <br>
 
 <br>
 <br>
