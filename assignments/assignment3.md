@@ -11,7 +11,6 @@ Contexts in NonceGeneration are namespaces that ensure nonces are unique within 
 <br>
 <br>
 <br>
-
 ### 2. Storing used strings
 <br>
 *Why must the NonceGeneration store sets of used strings? One simple way to implement the NonceGeneration is to maintain a counter for each context and increment it every time the generate action is called. In this case, how is the set of used strings in the specification related to the counter in the implementation? (In abstract data type lingo, this is asking you to describe an abstraction function.)*
