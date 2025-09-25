@@ -93,8 +93,8 @@ If only a single fixed domain is supported such as “bit.ly”, then I would dr
 
 When a resource expires we are automatically deleting mapping by: <br>
 sync expire <br>
-when ExpiringResource.expireResource(): (resource: shortUrl) <br>
-then UrlShortening.delete(shortUrl) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;when ExpiringResource.expireResource(): (resource: shortUrl) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;then UrlShortening.delete(shortUrl) <br>
 <br>
 <br>
 <br>
