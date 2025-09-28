@@ -15,11 +15,8 @@ One key problem faced by users within this domain is that when one roommate move
 **Stakeholders:**
 <br>
 * Students: Primary users who need to visualize and agree on layouts before move-in.
-<br>
 * Roommates/Suitemates: Collaborators whose comfort depends on shared decision-making.
-<br>
 * REX Chairs: MIT student leaders who want students to feel positive about dorm life rather than stressed about space conflicts.
-<br>
 * MIT Housing Office: Administrators who benefit from reduced roommate conflicts and fewer requests for room changes.
 <br>
 <br>
