@@ -20,7 +20,7 @@ Some fun facts about me:
 [Link to Assignment 1](assignments/assignment1.md)
 <br>
 <br>
-[Link to PSET 1](assignments/PSET1.md)
+[Link to PSET 1](assignments/pset1.md)
 <br>
-[Link to PSET 2](assignments/PSET2.md)
+[Link to PSET 2](assignments/pset2.md)
 
