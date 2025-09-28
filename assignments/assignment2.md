@@ -34,6 +34,27 @@ One key problem faced by users within this domain is that when one roommate move
 
 # <p align="center">MIT DormCraft: Application Pitch</p>
 
+**Name:**
+<br>
+DormCraft
+<br>
+<br>
+**Motivation:**
+<br>
+Moving into MIT dorms is stressful, especially when roommates don’t know how the room looks or how to share space fairly. DormCraft solves this by giving students a collaborative, visual planning tool.
+<br>
+<br>
+**Key Features:**
+<br>
+Visual Room Preview: Every MIT dorm room is digitally modeled with accurate quirks (alcoves, window placement). Students can virtually explore their room before move-in, reducing uncertainty. 
+<br>
+Collaborative Layout Tool: Students can preview what furniture is provided in their rooms to collaborate preemptively on how to share. Roommates can drag and drop MIT-provided furniture into layouts, share ideas, and agree on arrangements together, ensuring fairness.
+<br>
+Roommate Voting: When disagreements arise, students can propose multiple layouts and quickly vote within the app, turning potential conflicts into cooperative decisions.
+<br>
+<br>
+<br>
+
 # <p align="center">MIT DormCraft: Concept Design</p>
 
 # <p align="center">MIT DormCraft: UI Sketches</p>
