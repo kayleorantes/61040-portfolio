@@ -61,5 +61,26 @@ Roommate Voting: When disagreements arise, students can propose multiple layouts
 
 # <p align="center">MIT DormCraft: User Journey</p>
 
-
-
+**Step 1 – What Triggers a Need**
+<br>
+Selena, a first-year MIT student, receives her dorm assignment in the summer. She’s excited but immediately begins to worry about what the room will look like and whether she’ll be stuck with the “bad” side of the room. Her roommate Alex is moving in earlier, which raises her anxiety that she might take the window spot and arrange furniture in a way that leaves Selena cramped. This uncertainty makes her feel like she’s starting her college experience at a disadvantage.
+<br>
+<br>
+**Step 2 – Virtually Explore Space**
+<br>
+Selena logs into DormCraft and selects her dorm building and room number. She sees a digital layout of her room that includes its actual measurements and quirks, such as a small alcove near the door. For the first time, she can picture the space before even stepping foot inside it. The accurate rendering gives her a sense of relief because she now knows what she’s working with.
+<br>
+<br>
+**Step 3 – Roommate Collaboration**
+<br>
+Selena uses the collaboration feature to invite Alex to the shared layout board. They both begin dragging and dropping beds, desks, and dressers from the furniture library into the room, watching changes happen in real time. Sara notices that Alex prefers to place her bed under the alcove, while she wants her desk near the window for natural light. Instead of arguing, they can see both preferences visually, which makes the conversation feel more constructive.
+<br>
+<br>
+**Step 4 – Resolve Conflict**
+<br>
+When they reach a disagreement about who gets the window space, Selena creates a layout that she thinks would be a compromise and Alex does the same. They both use DormCraft’s voting system to create a quick poll. This turns what could have been an uncomfortable argument into a fair process where both voices are heard. The poll ensures that whichever option they choose feels like a mutual decision rather than one person forcing their preference.
+<br>
+<br>
+**Step 5 – Outcome**
+<br>
+Alex casts her vote, and they agree to stick with the winning arrangement. The final layout is saved automatically, so both roommates can return to it later if they want to make adjustments. On move-in day, Selena feels much more confident because she knows exactly where her furniture will go and doesn’t have to negotiate while surrounded by boxes. Instead of starting college with conflict, both Selena and Alex feel like they’re on the same team from the beginning.
