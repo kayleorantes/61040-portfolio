@@ -1,18 +1,18 @@
 # <p align="center">MIT DormCraft: Problem Statement</p>
 
-Problem Domain: MIT Dorm Room Layout
+### Problem Domain: MIT Dorm Room Layout
 <br>
 Dorm living is a central part of the MIT student experience, yet planning how to use and personalize the limited and uniquely shaped space can be stressful. I care about this domain because I’ve personally faced challenges moving into dorms. Students have little to no idea what their room would look like until move-in, dealing with quirks like unexpected alcoves, all while students are trying to coordinate with roommates how to organize the furniture and space under time pressure.
 <br>
 <br>
-<br>
-Problem: Roommate Collaboration on Layout
+
+### Problem: Roommate Collaboration on Layout
 <br>
 One key problem faced by users within this domain is that when one roommate moves in earlier, they may claim the “best” side of the room and arrange furniture to their advantage, leaving the later roommate frustrated and disadvantaged. Without a way to preview the room and collaborate before move-in, students often experience unnecessary tension.
 <br>
 <br>
-<br>
-Stakeholders:
+
+### Stakeholders:
 <br>
 Students: Primary users who need to visualize and agree on layouts before move-in.
 <br>
@@ -23,8 +23,8 @@ REX Chairs: MIT student leaders who want students to feel positive about dorm li
 MIT Housing Office: Administrators who benefit from reduced roommate conflicts and fewer requests for room changes.
 <br>
 <br>
-<br>
-Evidence and Comparables:
+
+### Evidence and Comparables:
 <br>
 MIT Housing Dimensions [link text](https://mitguidetoresidences.mit.edu/residences): MIT already publishes dorm layouts and floor plans, but they are not interactive, leaving gaps in usability.
 <br>
