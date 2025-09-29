@@ -46,11 +46,19 @@ Moving into MIT dorms is stressful, especially when roommates don’t know how t
 <br>
 **Key Features:**
 <br>
-Visual Room Preview: Every MIT dorm room is digitally modeled with accurate quirks (alcoves, window placement). Students can virtually explore their room before move-in, reducing uncertainty. 
+Visual Room Preview: 
 <br>
-Collaborative Layout Tool: Students can preview what furniture is provided in their rooms to collaborate preemptively on how to share. Roommates can drag and drop MIT-provided furniture into layouts, share ideas, and agree on arrangements together, ensuring fairness.
+DormCraft allows students to see their MIT dorm room in a fully digital format, capturing every detail, from alcoves and window placements to unique quirks like uneven corners or built-in shelving. By exploring the room virtually, students gain a realistic sense of the space and can start planning how they want to arrange their belongings. This early preview reduces the stress of uncertainty, giving students confidence and control over their new environment. It also benefits parents and the Housing Office, since students arrive prepared and fewer layout disputes arise.
 <br>
-Roommate Voting: When disagreements arise, students can propose multiple layouts and quickly vote within the app, turning potential conflicts into cooperative decisions.
+<br>
+Collaborative Layout Tool: 
+<br>
+Students can drag and drop furniture into their room’s digital model and invite roommates to view and edit the layout together. Changes update in real time, so both roommates can experiment with different arrangements, comment on ideas, and work toward a layout that works for both. This collaborative feature encourages communication and fairness, preventing one student from claiming the “best” side simply by moving in first. By facilitating shared planning, DormCraft helps roommates build a cooperative dynamic from the start, while student leaders and Housing staff see fewer conflicts during move-in.
+<br>
+<br>
+Roommate Voting: 
+<br>
+When roommates disagree on a particular arrangement, DormCraft provides an in-app voting system that allows them to propose multiple layouts and select a winning option democratically. Each student’s vote is counted, and the agreed-upon layout is saved automatically for future reference. This feature ensures that decisions are fair, transparent, and collaborative, reducing tension and resentment. The process leaves students feeling empowered and respected, and Housing staff benefit from smoother move-ins with fewer disputes needing intervention.
 <br>
 <br>
 <br>
