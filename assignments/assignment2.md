@@ -173,15 +173,8 @@ Together, these concepts support the app’s main features: the Room Model and F
 <br>
 
 # <p align="center">MIT DormCraft: UI Sketches</p>
-t1
-![UI Sketches](..assests/sketches.jpg)
 
-t2
-![UI Sketches](assests/sketches.jpg)
-
-t3
-![UI Sketches](.assests/sketches.jpg)
-
+![UI Sketches](../assets/sketches.jpg)
 
 # <p align="center">MIT DormCraft: User Journey</p>
 
