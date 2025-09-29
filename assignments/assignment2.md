@@ -166,10 +166,12 @@ Roommate Voting: When disagreements arise, students can propose multiple layouts
 * The Furniture Library introduces modular building blocks (beds, desks, dressers) that can be instantiated in any room; it is generic in that furniture items can be applied to any room model without assuming knowledge of that room’s structure.
 * The Collaboration Board concept enables interaction between users—it does not assume what kinds of objects are being shared, but in DormCraft it will be instantiated with room layouts generated from the Room Model and Furniture Library.
 * The Voting System provides a generic mechanism for resolving disagreements. It takes proposed layouts (produced via the Collaboration Board) as its target type, but it does not make assumptions about how those layouts are represented internally.
+<br>
 Together, these concepts support the app’s main features: the Room Model and Furniture Library supply the raw materials, the Collaboration Board provides the shared workspace, and the Voting System ensures fair decision-making. Their independence means that, for example, the Voting System could just as easily be used for polls unrelated to layouts, and the Furniture Library could in principle be reused for planning other campus spaces. The instantiations of generic parameters are straightforward: the “user” type in the Collaboration Board and Voting System is bound to MIT students (roommates), and the “target items” of the Voting System are layout options stored on the board. This modularity makes the design extensible while keeping each concept’s purpose clear.
 <br>
 <br>
 <br>
+
 # <p align="center">MIT DormCraft: UI Sketches</p>
 
 # <p align="center">MIT DormCraft: User Journey</p>
